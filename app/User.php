@@ -109,7 +109,7 @@ class User extends Authenticatable
     
     $exist = $this->is_favorites($micropostId);
    
-    if ($exis) {
+    if ($exist) {
         
         $this->favorites()->detach($micropostId);
         return true;
@@ -127,11 +127,11 @@ class User extends Authenticatable
     
     
     
-    public function is_favorite($micropostId)
+    public function is_favorites($micropostId)
     {
-        return $this->favorites() -> where('favorite_id', $micropostId) ->$exist();
+        return $this->favorites()->where('favorite_id', $micropostId)->exists();
     }
- 
+
  
  
     
